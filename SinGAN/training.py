@@ -223,6 +223,7 @@ def train_single_scale(netD, netG, reals, Gs, Zs, in_s, NoiseAmp, opt, centers=N
                 print(z_prev.type())
                 z_prev = z_prev.long()
                 print(z_prev.type())
+                print(real.type())
                 tensor = loss(netG(Z_opt.detach(), z_prev), real)
                 rec_loss = alpha * tensor
                 rec_loss.backward(retain_graph=True)
