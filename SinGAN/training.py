@@ -220,13 +220,10 @@ def train_single_scale(netD, netG, reals, Gs, Zs, in_s, NoiseAmp, opt, centers=N
                     z_prev = functions.quant2centers(z_prev, centers)
                     plt.imsave('%s/z_prev.png' % (opt.outf), functions.convert_image_np(z_prev), vmin=0, vmax=1)
                 Z_opt = opt.noise_amp * z_opt + z_prev
-                print(z_prev.type())
                 z_prev = z_prev.long()
-                print(z_prev.type())
-                print(real.type())
-                real = real.long()
-                print(real.type())
-                tensor = loss(netG(Z_opt.detach(), z_prev), real)
+                net_out = netG(Z_opt.detach(), z_prev)
+                net_out = net_out.float()
+                tensor = loss(net_out, real)
                 rec_loss = alpha * tensor
                 rec_loss.backward(retain_graph=True)
                 rec_loss = rec_loss.detach()
