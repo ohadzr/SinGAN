@@ -2,7 +2,8 @@
 import argparse
 import glob
 from skimage import io as img
-
+from skimage.measure import compare_psnr
+import cv2
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -16,6 +17,13 @@ if __name__ == '__main__':
 
     # load original image and test images
     original_image = img.imread('%s%s' % (opt.input_img, opt.ref_image))
-    test_images = []
+    test_images = [img.imread(image_path) for image_path in all_images_path]
+
+    test_images_psnr = [compare_psnr(cv2.resize(original_image, test_image.shape), test_image)
+                        for test_image in test_images]
+
+    for i, image_path in enumerate(all_images_path):
+        print("PSNR for {} is: {}".format(image_path, test_images_psnr[i]))
+
 
 
