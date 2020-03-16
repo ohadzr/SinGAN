@@ -14,6 +14,7 @@ if __name__ == '__main__':
 
     # get all images for test
     all_images_path = glob.glob(opt.image_dir+'/*')
+    all_images_path = [all_images_path[0]]
     print("Found %d images" % len(all_images_path))
     # print(all_images_path)
 
