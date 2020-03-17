@@ -11,11 +11,19 @@ This is our reproduction for the paper:
 Usage:
 training, sampling from given scale and calculating distance with our loss functions
 ```angular2
+main_train.py --input_name <image_name> --loss_function <loss function> --manualSeed 1000
+random_samples.py --input_name <image_name> --mode random_samples --loss_function <loss function> --manualSeed 1000 --gen_start_scale 1
+calc_image_diffrences.py --original_image <image_path> --image_dir <generated_images_path>
+
+```
+
+Example: (KLDivLoss, balloon image)
+```angular2
 main_train.py --input_name balloons.png --loss_function "KLDivLoss" --manualSeed 1000
 random_samples.py --input_name balloons.png --mode random_samples --loss_function "KLDivLoss" --manualSeed 1000 --gen_start_scale 1
 calc_image_diffrences.py --original_image Input/Images/balloons.png --image_dir Output/RandomSamples/balloons/gen_start_scale=0,loss_function=KLDivLoss
 ```
-
+For more commands, see original explanation (below).
 
 And these are some samples of the new code we added:
 
