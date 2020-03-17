@@ -1,3 +1,30 @@
+
+### Digital Image Processing – Winter 2019-2020 – Final project
+####  Ohad Zohar, Yonathan Keselbrener
+
+This is our adaptation for the paper. It is based on the paper's code with our changes for the final project.
+This is our reproduction for the paper:
+ 
+![](imgs/taub.PNG)
+
+
+Usage:
+training, sampling from given scale and calculating distance with our loss functions
+```angular2
+main_train.py --input_name balloons.png --loss_function "KLDivLoss" --manualSeed 1000
+random_samples.py --input_name balloons.png --mode random_samples --loss_function "KLDivLoss" --manualSeed 1000 --gen_start_scale 1
+calc_image_diffrences.py --original_image Input/Images/balloons.png --image_dir Output/RandomSamples/balloons/gen_start_scale=0,loss_function=KLDivLoss
+```
+
+
+And these are some samples of the new code we added:
+
+![](imgs/loss1.png)
+![](imgs/loss2.png)
+
+
+
+
 # SinGAN
 [Project](http://webee.technion.ac.il/people/tomermic/SinGAN/SinGAN.htm) | [Arxiv](https://arxiv.org/pdf/1905.01164.pdf) | [CVF](http://openaccess.thecvf.com/content_ICCV_2019/papers/Shaham_SinGAN_Learning_a_Generative_Model_From_a_Single_Natural_Image_ICCV_2019_paper.pdf) 
 ### Official pytorch implementation of the paper: "SinGAN: Learning a Generative Model from a Single Natural Image"

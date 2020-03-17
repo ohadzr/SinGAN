@@ -247,8 +247,8 @@ def calculate_sifid_given_paths(path1, path2, batch_size, cuda, dims, suffix):
         # file_num2 = files2[i].name
         # Im_ind.append(int(file_num1[:-4]))
         # Im_ind.append(int(file_num2[:-4]))
-    return fid_values
-    return fid_values
+    # return fid_values
+    return fid_values[0]
 
 
 if __name__ == '__main__':
