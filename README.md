@@ -5,7 +5,7 @@
 This is our adaptation for the paper. It is based on the paper's code with our changes for the final project.
 This is our reproduction for the paper:
  
-![](imgs/taub.PNG)
+![](imgs/taub.png)
 
 
 Usage:
