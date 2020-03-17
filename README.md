@@ -19,8 +19,13 @@ calc_image_diffrences.py --original_image <image_path> --image_dir <generated_im
 
 Example: (KLDivLoss, balloon image)
 ```angular2
+# train balloon image with manual seed and KLDivLoss
 main_train.py --input_name balloons.png --loss_function "KLDivLoss" --manualSeed 1000
+
+# generate some random samples from scale=1 
 random_samples.py --input_name balloons.png --mode random_samples --loss_function "KLDivLoss" --manualSeed 1000 --gen_start_scale 1
+
+# calculate SIFID and PSNR for generated images from scale=0
 calc_image_diffrences.py --original_image Input/Images/balloons.png --image_dir Output/RandomSamples/balloons/gen_start_scale=0,loss_function=KLDivLoss
 ```
 For more commands, see original explanation (below).
